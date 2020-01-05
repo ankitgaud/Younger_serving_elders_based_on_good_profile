@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	  <title>User_profile</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container"><br>
+		<h2 class="text-center"><u>Edit review and rating of your oidies!</u></h2><br>
+		<h2 class="text-center">{{username}}</h2><br><br>
+	    <div class="container text-center">
+  		<form method="post">
+  			{% csrf_token %}
+  			{{form.as_p}}
+  			<br><button type="submit" class="btn btn-primary">Submit</button>
+  		</form >
+  			<form>
+  				
+  			</form>
+  		</div>
+  	</div>	
+</body>
+</html>

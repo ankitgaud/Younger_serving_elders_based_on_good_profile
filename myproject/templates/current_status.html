@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	  <title>User_profile</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style type="text/css">
+    .red{color:red;}
+  </style>
+</head>
+<body>
+<div class="container">
+<div class="jumbotron text-center">
+  <h1>Edit your current status!</h1>
+  <p>{{username}}</p>
+</div>
+</div>
+
+
+	<div class="container"><br>
+  <div class="container text-center">
+
+      <form class="form-inline" method="post" action="/edit_current_status/{{username}}/">
+  		{% csrf_token %}
+        <div class="form-group">
+          <label  for="elder_1">Elder 1 - </label>
+          <input type="text" class="form-control" id="elder_1" name="elder_1" value="{{status.elder_1}}">
+        </div>
+  <br><br>
+        <div class="form-group">
+          <label  for="elder_2">Elder 2 - </label>
+          <input type="text" class="form-control" id="elder_2" name="elder_2" value="{{status.elder_2}}">
+        </div>
+  <br><br>
+          <div class="form-group">
+          <label  for="elder_3">Elder 3 - </label>
+          <input type="text" class="form-control" id="elder_3" name="elder_3" value="{{status.elder_3}}">
+        </div>
+  <br><br>
+          <div class="form-group">
+          <label  for="elder_4">Elder 4 - </label>
+          <input type="text" class="form-control" id="elder_4" name="elder_4" value="{{status.elder_4}}">
+        </div>
+  <br><br>
+
+
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+  </div>
+	</div>
+  <br>
+  <div>
+  <p class="text-center red"><b>{{error}}</b></p>	
+  </div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	  <title>User_profile</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style type="text/css">
+    .red{color: red;}
+  </style>
+</head>
+<body>
+	<div class="container"><br>
+		<h2 class="text-center"><u>Add elder in your list!!</u></h2><br>
+		<h2 class="text-center">{{username}}</h2><br><br>
+	    <div class="container text-center">
+  		<form method="post" class="form-inline">
+  			{% csrf_token %}
+        <label  for="id_younger_user">Username: </label>
+          <input type="text" name="elder_user" maxlength="20" required id="id_elder_user" value="{{username}}"><br><br>
+  			{{form.as_p}}
+
+  			<br><button type="submit" class="btn btn-primary">Submit</button>
+  		</form >
+  	
+  		</div>
+  	</div>	
+     <br><br>
+  <div>
+  <p class="text-center red"><b>{{error}}</b></p> 
+  </div>
+</body>
+</html>

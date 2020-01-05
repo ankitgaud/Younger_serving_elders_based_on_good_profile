@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>User_profile</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style type="text/css">
+  	#class1{  border-style: solid; border-width: medium;}
+  	.ex1{max-height: 5px;}
+    .review{height: 200px; width: 100%;border-style: solid; border-width: medium; padding: 2em;}
+  </style>
+</head>
+<body class="container">
+
+<div class="jumbotron">
+	<div class="row">
+	<div class="col-sm-4">
+		<img src="{% static 'download.jpg' %}" class="img-rounded" id="class1" alt="Cinque Terre" width="200" height="236">
+    <h5 class="text-center">Birth : {{user_data.dob}}({{user_data.gender}})</h5>
+	</div>
+	<div class="col-sm-8">
+  		<h2>{{user_data.name}}({{user_name}})</h2>
+  		<h5>{{user_data.address}}</h5> <br>
+  		<h5><a href="http://{{user_data.social_profile}}">Social Profile</a></h5>
+  		<h5>Rating - {{user_data.average_rating}}/10</h5>
+  		<h5>Experience - {{user_data.experience}} year</h5>
+	</div>
+	</div>
+</div>
+  
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6">
+    	<h3 class="text-center">Number of Oldies</h3>
+      	<div style="overflow: auto; height: 210px">
+   			<ul class="list-group">
+          {% for data in oldies %}
+          <li class="list-group-item">{{forloop.counter}}.<a href="/elder_user/{{data.elder_user}}/"> {{data.elder_user}} </a><span class="badge" onclick="myFunction('{{data.review_by_younger}}')">review</span><span class="badge">{{data.rating_by_younger}}/10</span></li>
+          {% endfor %}
+    			
+
+  			</ul>
+  		</div>
+    </div>
+    <div class="col-sm-6">
+      	<h3 class="text-center">Current Status</h3>
+      	<div>
+    		<ul class="list-group">
+    			<li class="list-group-item">1. <a href="/elder_user/{{status.elder_1}}/">{{status.elder_1}}</a> <span class="badge">working</span></li>
+    			<li class="list-group-item">2. <a href="/elder_user/{{status.elder_2}}/">{{status.elder_2}}</a>   <span class="badge">working</span></li>
+    			<li class="list-group-item">3. <a href="/elder_user/{{status.elder_3}}/">{{status.elder_3}} </a><span class="badge">working</span></li>
+     			<li class="list-group-item">4. <a href="/elder_user/{{status.elder_4}}/">{{status.elder_4}}</a><span class="badge">working</span></li>
+    			
+  			</ul>
+  		</div>
+    </div>
+ 
+  </div>
+</div>
+<div class="col-sm-12 text-center container">
+  <div class="review container">
+    <h5 class="text"></h5>
+  </div>
+</div>
+<br><br>
+<p class="text-center blue"><u><a href="/">Back to home</a></u></p>
+<br><br><br>
+</body>
+</html>
+<script>
+function myFunction(data12)
+{
+  $(".text").text(data12);
+}
+
+</script>

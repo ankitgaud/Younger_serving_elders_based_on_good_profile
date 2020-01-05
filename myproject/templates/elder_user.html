@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>User_profile</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style type="text/css">
+  	#class1{  border-style: solid; border-width: medium;}
+  	.ex1{max-height: 5px;}
+    .review{height: 200px; width: 100%;border-style: solid; border-width: medium; padding: 2em;}
+  </style>
+</head>
+<body class="container">
+
+<div class="jumbotron">
+	<div class="row">
+	<div class="col-sm-4">
+		<img src="{% static 'download.jpg' %}" class="img-rounded" id="class1" alt="Cinque Terre" width="200" height="236">
+		<h5 class="text-center">Birth : {{user_data.dob1}}({{user_data.gender1}})</h5>
+	</div>
+	<div class="col-sm-8">
+  		<h2>{{user_data.name1}}({{user_name}})</h2>
+  		<h5>{{user_data.address}}</h5> <br>
+  	
+  		<h4>budget - 10k/mont</h4><br>
+  		<h4>Currently serving by <a>Tiwari</a></h4>
+	</div>
+	</div>
+</div>
+  
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+    	<h3 class="text-center">Served By</h3>
+      	<div style="overflow: auto; height: 210px">
+   			<ul class="list-group">
+    			<li class="list-group-item">Younger <span class="badge">review</span><span class="badge">time duration</span><span class="badge">rating</span></li>
+
+          {% for data in younger_ %}
+            <li class="list-group-item"><a href="/younger_user/{{data.younger_user}}/"> {{data.younger_user}} </a> <span class="badge" onclick="myFunction('{{data.review_by_elder}}')">review</span><span class="badge">{{data.time_duration}} months</span><span class="badge">7/10</span></li>
+          {% endfor %}
+
+  			</ul>
+  		</div>
+    </div>
+ 
+  </div>
+</div>
+<div class="col-sm-12 text-center container">
+  <div class="review container">
+    <h5 class="text"></h5>
+  </div>
+</div><br><br>
+<p class="text-center blue"><u><a href="/">Back to home</a></u></p>
+<br><br><br>
+</body>
+</html>
+<script>
+function myFunction(data12)
+{
+  $(".text").text(data12);
+}
+
+</script>
